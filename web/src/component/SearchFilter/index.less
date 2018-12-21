@@ -1,0 +1,35 @@
+.search-filter {
+    height: 60px;
+    background-color: #fff;
+    .content {
+        width: 1280px;
+        height: 60px;
+        margin: 0 auto;
+        position: relative;
+        display: flex;
+        align-items: center;
+        .label {
+            margin-right: 10px;
+            color: #666;
+        }
+        .order-wrap {
+            display: flex;
+            align-items: center;
+            position: absolute;
+            right: 0;
+            .label,
+            .mySwitch {
+                float: left;
+            }
+        }
+    }
+    
+}
+
+.mySwitch {
+    .ant-radio-button-wrapper-checked {
+        background-color: #246ee3;
+        border-color: #246ee3;
+        color: #fff;
+    }
+}

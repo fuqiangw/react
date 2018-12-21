@@ -1,0 +1,5 @@
+export const GET_PROJECT_INFO = "GET_PROJECT_INFO";
+export const GET_PROJECT_INFO1 = "GET_PROJECT_INFO1";
+export const GET_MATERIAL_INFO = "GET_MATERIAL_INFO";
+export const INCREASE = "INCREASE";
+export const ONCREASE = "ONCREASE";
