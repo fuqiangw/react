@@ -48,6 +48,7 @@ class List extends Component {
     if ( data.length < total ) {
       this.seqData.filters.getType = 1;
       this.seqData.filters.pageNo += 1;
+      // 这里的注释是为了测试 git 的
       this.sendSeq(this.seqData.filters);
     }
   }
