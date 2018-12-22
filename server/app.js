@@ -9,6 +9,9 @@ const logger = require('koa-logger');
 const koaBody = require('koa-body');
 // const serve = require('koa-static')
 const routes = require('./routes');
+const config = require('./config');
+
+const session = require('koa-session');
 // const path = require('path');
 
 
@@ -19,6 +22,11 @@ const middleware = require('./middleware');
 // const users = require('./routes/users')
 // 下面以koa2-cors为例，
 const cors = require('koa2-cors');
+
+const {
+	port: serverPort,
+	session: sessionConfig
+} = config.server;
 
 
 
@@ -69,6 +77,8 @@ app.use(async (ctx, next) => {
 	const ms = new Date() - start
 	console.log(`${ctx.method} ${ctx.url} - ${ms}ms`)
 })
+app.keys = [sessionConfig.key];
+app.use(session(sessionConfig, app))
 
 // routes
 app.use(routes.routes())
@@ -78,6 +88,6 @@ app.use(routes.allowedMethods())
 app.on('error', (err, ctx) => {
 	console.error('server error', err, ctx)
 });
-app.listen(6677);
+app.listen(serverPort);
 
 module.exports = app
