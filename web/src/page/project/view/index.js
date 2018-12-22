@@ -103,11 +103,11 @@ class Project extends React.Component {
 				</div>
 
 
-				
-						<Button onClick={this.projectdownload}>
-							<Icon type="upload" /> 下载文件
+
+				<Button onClick={this.projectdownload}>
+					<Icon type="upload" /> 下载文件
           				</Button>
-					
+
 			</div>
 		);
 	}

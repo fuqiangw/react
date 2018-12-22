@@ -29,21 +29,21 @@ onerror(app)
 
 // middlewares
 app.use(bodyparser({
-  enableTypes:['json', 'form', 'text']
+	enableTypes: ['json', 'form', 'text']
 }))
 // app.use(bodyparser.urlencoded({ extended: false }))
 
 
 
 app.use(koaBody({
-  multipart: true,
-  formidable: {
-      maxFileSize: 200*1024*1024    // 设置上传文件大小最大限制，默认2M
-  }
+	multipart: true,
+	formidable: {
+		maxFileSize: 200 * 1024 * 1024    // 设置上传文件大小最大限制，默认2M
+	}
 }));
 
 const {
-  response
+	response
 } = middleware;
 console.log('wfq---connect')
 app.use(response())
@@ -52,22 +52,22 @@ app.use(json())
 app.use(logger())
 
 app.use(views(__dirname + '/views', {
-  extension: 'pug'
+	extension: 'pug'
 }))
 
-app.use(cors({credentials: true, origin: true}))
+app.use(cors({ credentials: true, origin: true }))
 
 app.use(async (ctx, next) => {
-  await next();
+	await next();
 })
 app.use(response())
 
 // logger
 app.use(async (ctx, next) => {
-  const start = new Date()
-  await next()
-  const ms = new Date() - start
-  console.log(`${ctx.method} ${ctx.url} - ${ms}ms`)
+	const start = new Date()
+	await next()
+	const ms = new Date() - start
+	console.log(`${ctx.method} ${ctx.url} - ${ms}ms`)
 })
 
 // routes
@@ -76,7 +76,7 @@ app.use(routes.allowedMethods())
 
 // error-handling
 app.on('error', (err, ctx) => {
-  console.error('server error', err, ctx)
+	console.error('server error', err, ctx)
 });
 app.listen(6677);
 

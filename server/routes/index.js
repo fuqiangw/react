@@ -12,27 +12,27 @@ const project = require('./project');
 
 // 产品 模块  
 router.use(
-  '/product',
-  product.routes(),
-  product.allowedMethods()
+	'/product',
+	product.routes(),
+	product.allowedMethods()
 )
 
 router.use(
-  '/productType',
-  productType.routes(),
-  productType.allowedMethods()
+	'/productType',
+	productType.routes(),
+	productType.allowedMethods()
 )
 
 router.use(
-  '/user',
-  userUpdate.routes(),
-  userUpdate.allowedMethods()
+	'/user',
+	userUpdate.routes(),
+	userUpdate.allowedMethods()
 )
 
 router.use(
-  '/projectfiles',
-  project.routes(),
-  project.allowedMethods()
+	'/projectfiles',
+	project.routes(),
+	project.allowedMethods()
 )
 
 

@@ -6,8 +6,8 @@ import { saga as project } from './page/project';
 
 
 export default function* rootSaga() {
-    yield fork(list.getProductListFlow);
-    yield fork(list.getSearchFilterCondFlow);
-    yield fork(effect.updateUserFlow);
-    yield fork(project.updateFileFlow);
+	yield fork(list.getProductListFlow);
+	yield fork(list.getSearchFilterCondFlow);
+	yield fork(effect.updateUserFlow);
+	yield fork(project.updateFileFlow);
 }

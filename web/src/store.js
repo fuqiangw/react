@@ -24,7 +24,7 @@
 // import { createStore } from 'redux';
 import reducer from './reducer';
 import createSagaMiddleware from 'redux-saga';
-import { createStore, applyMiddleware, compose} from 'redux';
+import { createStore, applyMiddleware, compose } from 'redux';
 import { createLogger } from 'redux-logger';
 
 
@@ -34,11 +34,11 @@ import saga from './saga';
 const sagaMiddleware = createSagaMiddleware();
 
 const store = createStore(
-    reducer,
-    compose(
-        applyMiddleware(sagaMiddleware, createLogger()),
-        window && (window.devToolsExtension ? window.devToolsExtension() : undefined),
-    )
+	reducer,
+	compose(
+		applyMiddleware(sagaMiddleware, createLogger()),
+		window && (window.devToolsExtension ? window.devToolsExtension() : undefined),
+	)
 );
 
 sagaMiddleware.run(saga);

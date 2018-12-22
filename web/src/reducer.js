@@ -9,8 +9,8 @@ import project from './page/project/reducer'
 
 
 export default combineReducers({
-    home,
-    list,
-    effect,
-    project
+	home,
+	list,
+	effect,
+	project
 });

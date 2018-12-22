@@ -20,15 +20,15 @@ class MasonryCard extends React.Component {
 
 	componentDidMount() {
 		const that = this;
-		$(window).scroll( function () {
+		$(window).scroll(function () {
 			const scrollTop = $(this).scrollTop();
 			const scrollHeight = $(document).height();
 			const windowHeight = $(this).height();
-			if (scrollTop + windowHeight >= scrollHeight ) {
+			if (scrollTop + windowHeight >= scrollHeight) {
 				that.props.bottomTrigger();
 			}
 		});
-    }
+	}
 
 
 	renderNewLoad = (data) => {
@@ -47,9 +47,9 @@ class MasonryCard extends React.Component {
 			<div className="masonry-wrap">
 				<div className="card-wrap clearfix">
 					<Masonry options={masonryOptions}>
-						 {
-							 data &&  this.renderNewLoad(data)
-						 }
+						{
+							data && this.renderNewLoad(data)
+						}
 					</Masonry>
 				</div>
 				<div className="more">

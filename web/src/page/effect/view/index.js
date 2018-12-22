@@ -18,7 +18,7 @@ class Effect extends React.Component {
 	constructor(props) {
 		super(props)
 		this.state = {
-			choseImg:null,
+			choseImg: null,
 			width: 250,
 			height: 250,
 			scale: 1,
@@ -36,12 +36,12 @@ class Effect extends React.Component {
 	}
 	handleWheel = (e) => {
 		console.log(e.deltaY)
-		if (e.deltaY > 0){
+		if (e.deltaY > 0) {
 			this.setState({
 				scale: this.state.scale - 0.1
 			})
 		}
-		if (e.deltaY < 0){
+		if (e.deltaY < 0) {
 			this.setState({
 				scale: this.state.scale + 0.1
 			})
@@ -54,9 +54,9 @@ class Effect extends React.Component {
 			this.setState({
 				avator: img
 			});
-			this.props.updateUser('/user/update', {avator:img})
+			this.props.updateUser('/user/update', { avator: img })
 		}
-		
+
 	}
 	render() {
 		const uploadprops = {
@@ -70,7 +70,7 @@ class Effect extends React.Component {
 			}
 
 		}
-		const {  choseImg } = this.state;
+		const { choseImg } = this.state;
 		return (
 			<div className="effect-page clearfix">
 				<p className="title">这里要演示的是图片上传功能</p>
@@ -84,7 +84,7 @@ class Effect extends React.Component {
 
 				<div className="ReactAvatarEditor" onWheel={this.handleWheel}>
 					<ReactAvatarEditor
-						ref={(node) => {this.editorNode = node;}}
+						ref={(node) => { this.editorNode = node; }}
 						image={choseImg}
 						width={this.state.width}
 						height={this.state.height}
@@ -94,8 +94,8 @@ class Effect extends React.Component {
 						className="editor-canvas"
 					/>
 				</div>
-				<Button className={this.state.avator ? 'db': 'dn'} type="primary" onClick={this.clickhandleSubmit}>提交</Button>
-    
+				<Button className={this.state.avator ? 'db' : 'dn'} type="primary" onClick={this.clickhandleSubmit}>提交</Button>
+
 			</div>
 		);
 	}
@@ -103,15 +103,15 @@ class Effect extends React.Component {
 
 function mapseqDataToProps(seqData) {
 	return {
-	  ...seqData.home
+		...seqData.home
 	}
-  }
-  
-  function mapDispatchToProps(dispatch) {
+}
+
+function mapDispatchToProps(dispatch) {
 	return bindActionCreators({
-	  updateUser
+		updateUser
 	}, dispatch)
-  
-  }
-  
-  export default connect(mapseqDataToProps, mapDispatchToProps)(Effect);
+
+}
+
+export default connect(mapseqDataToProps, mapDispatchToProps)(Effect);
