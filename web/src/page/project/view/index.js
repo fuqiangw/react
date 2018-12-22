@@ -94,6 +94,7 @@ class Project extends React.Component {
 		return (
 			<div className="effect-page clearfix">
 				<p className="title">这里要演示的是文件上传</p>
+				{/* 这里演示的是 测试 */}
 				<div className="upload-left">
 					<Upload {...uploadprops}>
 						<Button>
