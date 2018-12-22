@@ -294,17 +294,18 @@ module.exports = {
                 'babel-preset-react-app/webpack-overrides'
               ),
               
-              plugins: [
-                [
-                  require.resolve('babel-plugin-named-asset-import'),
-                  {
-                    loaderMap: {
-                      svg: {
-                        ReactComponent: '@svgr/webpack?-prettier,-svgo![path]',
-                      },
-                    },
-                  },
-                ],
+							plugins: [
+                // [
+                //   require.resolve('babel-plugin-named-asset-import'),
+                //   {
+                //     loaderMap: {
+                //       svg: {
+                //         ReactComponent: '@svgr/webpack?-prettier,-svgo![path]',
+                //       },
+                //     },
+                //   },
+                // ],
+                ['import', { libraryName: 'antd', style: 'css' }],
               ],
               cacheDirectory: true,
               // Save disk space when time isn't as important
