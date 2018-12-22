@@ -15,7 +15,7 @@ class Card extends React.Component {
 		return (
 			<div className="result-card">
 				<div className="thumbnail">
-					<img src={ data.cover ?  `/asstes/images/${data.cover}` : "/asstes/images/test1.jpg"} alt="tupian" />
+					<img src={data.cover ? `/asstes/images/${data.cover}` : "/asstes/images/test1.jpg"} alt="tupian" />
 				</div>
 				<p>商品名称:{data.name}</p>
 				<p>商品描述:{data.desc}</p>

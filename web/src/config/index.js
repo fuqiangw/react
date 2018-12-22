@@ -2,7 +2,7 @@
 
 
 const config = {
-    serverAddr: process.env.serverIp || 'localhost:6677',
-    timeout: 2000
+	serverAddr: process.env.serverIp || 'localhost:6677',
+	timeout: 2000
 };
 export default config;
