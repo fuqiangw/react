@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 // import './App.less';
 
 import Header  from '../component/header/header';
-import home from '../page/home/index';
+import home from '../page/home/view';
 import video from '../page/video/index';
 import effect from '../page/effect/view';
 import project from '../page/project/view';
