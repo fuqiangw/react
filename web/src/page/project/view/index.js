@@ -30,11 +30,29 @@ class Project extends React.Component {
 			position: {
 				x: 0.5,
 				y: 0.5
-			}
+			},
+			title: '2'
 
 		}
 	}
 	componentDidMount() {
+	}
+	static  getDerivedStateFromProps (nextProps, prevState) { 
+		// 这意味着即使你的props没有任何变化
+		// 而是state发生了变化，导致组件发生了re-render，这个生命周期函数依然会被调用
+		// 该函数不能访问this  因为是静态函数
+		console.log(this);
+		console.log(nextProps);
+		console.log(prevState);
+		return 'www';
+	}
+	getSnapshotBeforeUpdate (prevProps, prevState) {
+		// 首次渲染时不会调用 每次render之前调用  
+		console.log('wwwwwwwww');
+		return 'snapshot' // 此处的返回值可以在 生命周期的componentDidUpdate第三个参数中获取
+	}
+	componentDidUpdate(prevProps, prevState, snapshot){
+		console.log(snapshot)
 	}
 	download = (zipPath) => {
 		const filterProjectName = (path) => {
@@ -66,7 +84,11 @@ class Project extends React.Component {
 		})
 		// window.open('/download/1.png');
 	}
-
+	handleClickDemo = () => {
+		this.setState({
+			title: 'wwwwww'
+		})
+	}
 	clickhandleSubmit = () => {
 		console.log(this.state.choseFile)
 		if (this.editorNode) {
@@ -94,6 +116,13 @@ class Project extends React.Component {
 		return (
 			<div className="effect-page clearfix">
 				<p className="title">这里要演示的是文件上传</p>
+
+				<p className="title">{this.state.title}</p>
+
+
+				<Button onClick={this.handleClickDemo}>
+							<Icon type="upload" /> 测试
+          				</Button>
 				{/* 这里演示的是 测试 */}
 				<div className="upload-left">
 					<Upload {...uploadprops}>
@@ -114,7 +143,7 @@ class Project extends React.Component {
 	}
 }
 
-function mapseqDataToProps(seqData) {
+function mapStateToProps(seqData) {
 	return {
 		...seqData.home
 	}
@@ -127,4 +156,4 @@ function mapDispatchToProps(dispatch) {
 
 }
 
-export default connect(mapseqDataToProps, mapDispatchToProps)(Project);
+export default connect(mapStateToProps, mapDispatchToProps)(Project);
