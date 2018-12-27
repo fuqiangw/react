@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import config from '../../../config';
 import { downloadProject } from '../api';
+import watermark from 'water-mark-oc'
 
 
 // import ReactAvatarEditor from 'react-avatar-editor';
@@ -36,6 +37,15 @@ class Project extends React.Component {
 		}
 	}
 	componentDidMount() {
+		// 水印测试
+		watermark({ 
+			content: 'demo waterMark',
+			width: 222,
+			height: 400 ,
+			// textAlign: false // 
+			rotate: -12,
+			zIndex: 899999999
+		}); 
 	}
 	static  getDerivedStateFromProps (nextProps, prevState) { 
 		// 这意味着即使你的props没有任何变化
@@ -47,7 +57,7 @@ class Project extends React.Component {
 		return 'www';
 	}
 	getSnapshotBeforeUpdate (prevProps, prevState) {
-		// 首次渲染时不会调用 每次render之前调用  
+		// 首次渲染时不会调用 每次render之前调用   一定要有返回值	 
 		console.log('wwwwwwwww');
 		return 'snapshot' // 此处的返回值可以在 生命周期的componentDidUpdate第三个参数中获取
 	}
