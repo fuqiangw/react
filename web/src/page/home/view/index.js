@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import BroadCast from '../../../component/broadCast/BroadCast'
 import { bindActionCreators } from 'redux';
 import { getProjectInfo, getProjectInfo1, getCrease } from '../action';
+import Zmage from 'react-zmage'
 
 import './index.less'
 
@@ -113,6 +114,14 @@ class Home extends React.Component {
 					</div>
 					<div className="broadcast-wrap">
 						<BroadCast />
+					</div>
+					<div className="Zmage-wrap">
+						Zmage-wrap
+						<Zmage
+						className="Zmage-wrap"
+							src="asstes/images/banner01.jpg"
+							alt="最简单的使用方式"
+						/>
 					</div>
 
 				</div>
