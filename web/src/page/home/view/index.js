@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import './index.less';
 import { connect } from 'react-redux';
+import { Link, Prompt, NavLink } from 'react-router-dom'
 import BroadCast from '../../../component/broadCast/BroadCast'
 import { bindActionCreators } from 'redux';
 import { getProjectInfo, getProjectInfo1, getCrease } from '../action';
@@ -17,6 +18,7 @@ class Home extends React.Component {
 		}
 	}
 	componentDidMount() {
+		console.log(this.props);
 		this.reqData = {
 			type: '1',
 			ctype: 0,
@@ -116,14 +118,32 @@ class Home extends React.Component {
 						<BroadCast />
 					</div>
 					<div className="Zmage-wrap">
-						Zmage-wrap
 						<Zmage
 						className="Zmage-wrap"
 							src="asstes/images/banner01.jpg"
 							alt="最简单的使用方式"
 						/>
 					</div>
+					<div className="linkDemoBox">
 
+					测试link: <Link to="/list" className="link" replace >跳转到list</Link>
+					{/* // replace : 当设置为 true 时，点击链接后将替换历史堆栈中的当前条目，而不是添加新条目。默认为 false。 */}
+
+
+
+					测试NavLink:<NavLink className="navLink" to="/list" exact activeClassName="selected">跳转到list</NavLink>
+					{/* activeClassName:	当元素处于激活状态时应用的类，默认为 active。它将与 className 属性一起使用。 */}
+					{/* exact: bool 如果为 true，则只有在位置完全匹配时才应用激活类/样式。 */}
+					{/* isActive: func */}
+
+
+
+					<Prompt message="你确定要离开当前页面吗？" />
+					</div>
+
+
+					{/* 使用 <Redirect> 会导航到一个新的位置。新的位置将覆盖历史堆栈中的当前条目，例如服务器端重定向（HTTP 3xx）。 */}
+				
 				</div>
 			</div>
 		);
