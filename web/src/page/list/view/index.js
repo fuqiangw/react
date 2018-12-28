@@ -89,16 +89,35 @@ class List extends Component {
 							style={{ width: 536 }}
 						/>
 					</div>
-					<div className="SearchFilter-wrap">
-						<SearchFilter orderSwitch={orderSwitch} orderSwitchActivedId={orderSwitchActivedId} filterSwitch={filterCond.data} handleClick={this.handleFilter} />
-					</div>
-					<div className="search-result-wrap">
-						<div className="total-numb">找到 <span>{total}</span> 个结果</div>
-						<div className="result-list clearfix">
-							<MasonryCard data={data} isLoaded={isLoaded} isNeedLoad={data.length < total} bottomTrigger={this.handlebottomTrigger} />
-						</div>
-					</div>
+					{
+						isLoaded === true &&
+						<div className="list-loading"> 
 
+							<h2>小花正在加载</h2>
+							<span />
+							<span />
+							<span />
+							<span />
+							<span />
+							<span />
+							<span />
+						</div>
+					}
+					{
+						isLoaded &&
+						<div>
+
+							<div className="SearchFilter-wrap">
+								<SearchFilter orderSwitch={orderSwitch} orderSwitchActivedId={orderSwitchActivedId} filterSwitch={filterCond.data} handleClick={this.handleFilter} />
+							</div>
+							<div className="search-result-wrap">
+								<div className="total-numb">找到 <span>{total}</span> 个结果</div>
+								<div className="result-list clearfix">
+									<MasonryCard data={data} isLoaded={isLoaded} isNeedLoad={data.length < total} bottomTrigger={this.handlebottomTrigger} />
+								</div>
+							</div>
+						</div>
+					}
 				</div>
 			</div>
 		);
